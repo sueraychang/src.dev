@@ -1,0 +1,8 @@
+{
+  "label": "Docusaurus",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Docusaurus 相關的主題。"
+  }
+}
