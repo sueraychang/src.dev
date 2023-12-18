@@ -4,6 +4,7 @@ sidebar_position: 1
 
 # 從0到1將 Docusaurus 署到 GitHub Pages
 
+如何快速架設 Docusaurus 並部署到 GitHub Pages 呢？
 
 本篇文章介紹如何從零開始架設一個 Docusaurus 靜態網站，並部署到 GitHub Pages 的所有流程。
 
