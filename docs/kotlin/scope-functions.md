@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Scope Functions
 ---
 
@@ -14,7 +14,7 @@ let, run, with, apply and also
 
 底下提供一個簡單的範例，分別是有無使用 Scope Functions 的情形。
 
-```dart title="使用 Scope Functions: let"
+```kotlin title="使用 Scope Functions: let"
 Person("Alice", 20, "Amsterdam").let {
     println(it)
     it.moveTo("London")
@@ -23,7 +23,7 @@ Person("Alice", 20, "Amsterdam").let {
 }
 ```
 
-```dart title="不使用 Scope Functions"
+```kotlin title="不使用 Scope Functions"
 val alice = Person("Alice", 20, "Amsterdam")
 println(alice)
 alice.moveTo("London")
@@ -73,7 +73,7 @@ println(alice)
 * `this` (lambda receiver)
 * `it` (lambda argument)
 
-```dart title="針對不同 Context object 的範例："
+```kotlin title="針對不同 Context object 的範例："
 fun main() {
     val str = "Hello"
     // this
@@ -97,7 +97,7 @@ run, with 跟 apply 用 `this` (也就是 lambda receiver) 的方式來參考物
 所以一般來說這類的 scope functions 會用來針對參考物件的 member 賦值，   
 或是對參考物件的成員函數做呼叫，在 scope 內不會參考外部的變數或函數。
 
-```dart
+```kotlin
 val adam = Person("Adam").apply { 
     age = 20                       // same as this.age = 20
     city = "London"
@@ -111,7 +111,7 @@ turn, let 跟 also 用 `it` (也就是 lambda argument) 的方式來參考物件
 it 為函數的預設引數名稱，也就是說程式碼可以額外指定函數引數名稱而不用`it`。   
 因為在 scope 內要參考物件要額外寫引數名，因此較適合混合內部與外部的函數或變數(因為較好分辨)。
 
-```dart title="使用預設引數名稱 it："
+```kotlin title="使用預設引數名稱 it："
 fun getRandomInt(): Int {
     return Random.nextInt(100).also {
         writeToLog("getRandomInt() generated value $it")
@@ -122,7 +122,7 @@ val i = getRandomInt()
 println(i)
 ```
 
-```dart title="額外指定引數名稱為 value 的用法："
+```kotlin title="額外指定引數名稱為 value 的用法："
 fun getRandomInt(): Int {
     return Random.nextInt(100).also { value ->
         writeToLog("getRandomInt() generated value $value")
@@ -140,13 +140,13 @@ println(i)
 
 let 常用來在 function call 結束後，調用一個或多個函數：
 
-```dart title="沒使用 let"
+```kotlin title="沒使用 let"
 val numbers = mutableListOf("one", "two", "three", "four", "five")
 val resultList = numbers.map { it.length }.filter { it > 3 }
 println(resultList) 
 ```
 
-```dart title="使用 let, 不需要再宣告跟使用 resultList 這個變數"
+```kotlin title="使用 let, 不需要再宣告跟使用 resultList 這個變數"
 val numbers = mutableListOf("one", "two", "three", "four", "five")
 numbers.map { it.length }.filter { it > 3 }.let { 
     println(it)
@@ -157,7 +157,7 @@ numbers.map { it.length }.filter { it > 3 }.let {
 &nbsp;
 
 若 let function scope 內只有一個函數，並且傳入的參數為 it ，可以再用 method reference (`::`) 簡寫：
-```dart
+```kotlin
 val numbers = mutableListOf("one", "two", "three", "four", "five")
 numbers.map { it.length }.filter { it > 3 }.let(::println)
 ```
@@ -167,7 +167,7 @@ numbers.map { it.length }.filter { it > 3 }.let(::println)
 let 一個常用情境為在物件不為 null 的情況下才執行它，  
 通常會搭配 safe call operator `?.`
 
-```dart
+```kotlin
 val str: String? = "Hello"   
 //processNonNullString(str)       // compilation error: str can be null
 val length = str?.let { 
@@ -182,7 +182,7 @@ val length = str?.let {
 另一個常用情境為利用 let 宣告一個新的變數，透過 let 內的邏輯來增加閱讀性。  
 例如以下範例的 modifiedFirstItem 變數。
 
-```dart
+```kotlin
 val numbers = listOf("one", "two", "three", "four")
 val modifiedFirstItem = numbers.first().let { firstItem ->
     println("The first item of the list is '$firstItem'")
@@ -200,7 +200,7 @@ with scope function 要將物件當參數傳入，同時在 code block 內用 th
 
 建議用來執行一些不需要回傳結果的函數或邏輯，  
 閱讀上可以看成 "***with this object, do the following.***"
-```dart
+```kotlin
 val numbers = mutableListOf("one", "two", "three")
 with(numbers) {
     println("'with' is called with argument $this")
@@ -211,7 +211,7 @@ with(numbers) {
 &nbsp;
 
 也常用來對一個 helper 物件賦值，也是一個增加閱讀性的用法：
-```dart
+```kotlin
 val numbers = mutableListOf("one", "two", "three")
 val firstAndLast = with(numbers) {
     "The first element is ${first()}," +
@@ -227,7 +227,7 @@ println(firstAndLast)
 run 基本上與 with 一樣，唯一差異為 run 是一個 extension function，所以可以用點`.`來呼叫。
 
 run 常用來對該物件同時做初始化跟運算：
-```dart
+```kotlin
 val service = MultiportService("https://example.kotlinlang.org", 80)
 
 val result = service.run {
@@ -247,7 +247,7 @@ val letResult = service.let {
 也可以將 run 直接拿來呼叫，此時 run function 不帶任何參數，仍然回傳最後一行的結果。
 也是一種增加閱讀性的用法，可看成 "***run the code block and compute the result.***"
 
-```dart
+```kotlin
 val hexNumberRegex = run {
     val digits = "0-9"
     val hexDigits = "A-Fa-f"
@@ -268,7 +268,7 @@ for (match in hexNumberRegex.findAll("+123 -FFFF !%*& 88 XYZ")) {
 建議主要用來對物件的 member 賦值，  
 可看成 "***apply the following assignments to the object.***"
 
-```dart
+```kotlin
 val adam = Person("Adam").apply {
     age = 32
     city = "London"        
@@ -283,7 +283,7 @@ println(adam)
 常用來在 code chain 中增加對該物件執行某些函數，  
 可看成 "***and also do the following with the object.***"
 
-```dart
+```kotlin
 val numbers = mutableListOf("one", "two", "three")
 numbers
     .also { println("The list elements before adding new one: $it") }
@@ -296,7 +296,7 @@ kotlin 標準函式庫中還提供了兩種 extension function，
 照字面上直觀可以得知 takeIf 會在物件符合 lambda 內條件時回傳該物件，否則回傳 `null`，
 而 takeUnless 則相反，會在物件符合條件時回傳 `null`，否則回傳該物件。
 
-```dart
+```kotlin
 val number = Random.nextInt(100)
 
 val evenOrNull = number.takeIf { it % 2 == 0 }
@@ -307,7 +307,7 @@ println("even: $evenOrNull, odd: $oddOrNull")
 在 code chain 中使用這兩個 function 時，特別需要注意因為它們有可能回傳 `null`，
 在後面需要加上 safe call (?)。
 
-```dart title="使用 takeIf："
+```kotlin title="使用 takeIf："
 fun displaySubstringPosition(input: String, sub: String) {
     input.indexOf(sub).takeIf { it >= 0 }?.let {
         println("The substring $sub is found in $input.")
@@ -319,7 +319,7 @@ displaySubstringPosition("010000011", "11")
 displaySubstringPosition("010000011", "12")
 ```
 
-```dart title="不使用 takeIf："
+```kotlin title="不使用 takeIf："
 fun displaySubstringPosition(input: String, sub: String) {
     val index = input.indexOf(sub)
     if (index >= 0) {
@@ -331,3 +331,8 @@ fun displaySubstringPosition(input: String, sub: String) {
 displaySubstringPosition("010000011", "11")
 displaySubstringPosition("010000011", "12")
 ```
+
+&nbsp;
+
+參考：
+[Scope Functions](https://kotlinlang.org/docs/scope-functions.html)
