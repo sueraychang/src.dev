@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-oauth-2" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.1">
+<title data-rh="true">OAuth 2.0 授權架構 | My Site</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://sueraychang.github.io/src.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://sueraychang.github.io/src.dev/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://sueraychang.github.io/src.dev/oauth-2"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="OAuth 2.0 授權架構 | My Site"><meta data-rh="true" name="description" content="OAuth 2.0 授權架構賦予第三方應用程式在特定條件下，訪問 HTTP 服務的能力。這種授權既可以是代表資源所有者，透過協調其與 HTTP 服務之間的同意過程來獲得，也可以是讓第三方應用程式直接為自身獲得訪問權限。"><meta data-rh="true" property="og:description" content="OAuth 2.0 授權架構賦予第三方應用程式在特定條件下，訪問 HTTP 服務的能力。這種授權既可以是代表資源所有者，透過協調其與 HTTP 服務之間的同意過程來獲得，也可以是讓第三方應用程式直接為自身獲得訪問權限。"><link data-rh="true" rel="icon" href="/src.dev/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sueraychang.github.io/src.dev/oauth-2"><link data-rh="true" rel="alternate" href="https://sueraychang.github.io/src.dev/oauth-2" hreflang="en"><link data-rh="true" rel="alternate" href="https://sueraychang.github.io/src.dev/oauth-2" hreflang="x-default"><link rel="stylesheet" href="/src.dev/assets/css/styles.e3ab61ce.css">
+<script src="/src.dev/assets/js/runtime~main.2ebaf4f5.js" defer="defer"></script>
+<script src="/src.dev/assets/js/main.875aec6d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/src.dev/"><div class="navbar__logo"><img src="/src.dev/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/src.dev/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">src.dev</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/src.dev/category/docusaurus">Docs</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/src.dev/category/docusaurus">Docusaurus</a><button aria-label="Expand sidebar category &#x27;Docusaurus&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/src.dev/category/kotlin">Kotlin</a><button aria-label="Expand sidebar category &#x27;Kotlin&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/src.dev/json-web-tokens">JWT(JSON Web Token)介紹</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/src.dev/oauth-2">OAuth 2.0 授權架構</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/src.dev/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">OAuth 2.0 授權架構</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>OAuth 2.0 授權架構</h1></header><p>OAuth 2.0 授權架構賦予第三方應用程式在特定條件下，訪問 HTTP 服務的能力。這種授權既可以是代表資源所有者，透過協調其與 HTTP 服務之間的同意過程來獲得，也可以是讓第三方應用程式直接為自身獲得訪問權限。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="介紹">介紹<a href="#介紹" class="hash-link" aria-label="Direct link to 介紹" title="Direct link to 介紹">​</a></h2>
+<p>在傳統的客戶端-伺服器認證模式中，客戶端需要用資源擁有者（例如用戶）的認證資料向伺服器驗證身份，以此來請求存取伺服器上的限制性資源（即受保護的資源）。為了讓第三方應用程序能夠存取這些受限資源，資源擁有者會將自己的登入資訊共享給第三方。這種做法引發了多個問題和限制：</p>
+<ul>
+<li>第三方應用必須儲存資源擁有者的登入資訊，以便日後使用，這通常意味著以明文方式保存密碼。</li>
+<li>伺服器必須支援密碼認證方式，儘管這樣做存在密碼固有的安全隱患。</li>
+<li>第三方應用獲得了過於廣泛的存取權限，可以接觸到資源擁有者的各種受保護資源，而資源擁有者卻無法對這些存取行為進行時間或範圍上的限制。</li>
+<li>資源擁有者若想撤回某個第三方的存取權，往往需要改變密碼，這也同時影響到所有其他第三方的存取。</li>
+<li>一旦任何第三方應用遭到攻擊，將會危及終端用戶的密碼安全，以及所有由該密碼保護的數據。</li>
+</ul>
+<p>OAuth 通過引入授權層解決了這些問題，並將客戶端的角色與資源擁有者的角色區分開來。在 OAuth 模式下，客戶端請求存取資源擁有者控制的資源，這些資源由資源伺服器提供。而客戶端所獲得的認證與資源擁有者的不同。</p>
+<p>客戶端不再使用資源擁有者的登入資訊來存取受保護的資源，而是獲得一個 <em><strong>存取權杖</strong></em>。這個權杖是一串特定的字串，標記了 <em><strong>存取的範圍</strong></em>、<em><strong>有效期限</strong></em> 及其他 <em><strong>相關屬性</strong></em>。這些存取權杖由授權伺服器發放給第三方客戶端，並得到資源擁有者的同意。客戶端使用這個權杖來存取資源伺服器上的受保護資源。</p>
+<p>舉例來說，一位終端用戶（資源擁有人）可以授權給一家印刷廠（客戶端），讓其存取她儲存在相片分享服務（資源伺服器）的相片，而無需向印刷廠透露她的用戶名和密碼。相反，她會直接與相片分享服務信任的伺服器（授權伺服器）進行驗證，該伺服器則會發給印刷廠專門的存取權杖。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="角色">角色<a href="#角色" class="hash-link" aria-label="Direct link to 角色" title="Direct link to 角色">​</a></h3>
+<p>OAuth 涉及四大核心角色：</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="資源擁有者-resource-owner">資源擁有者 Resource Owner<a href="#資源擁有者-resource-owner" class="hash-link" aria-label="Direct link to 資源擁有者 Resource Owner" title="Direct link to 資源擁有者 Resource Owner">​</a></h4>
+<p>指可以允許他人存取受保護資源的個體。如果資源擁有者是個人，則稱作終端用戶 (end-user)。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="資源伺服器-resource-server">資源伺服器 Resource Server<a href="#資源伺服器-resource-server" class="hash-link" aria-label="Direct link to 資源伺服器 Resource Server" title="Direct link to 資源伺服器 Resource Server">​</a></h4>
+<p>存放受保護資源的伺服器，它能夠處理並回應那些附帶有存取權杖的資源請求。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="客戶端-client">客戶端 Client<a href="#客戶端-client" class="hash-link" aria-label="Direct link to 客戶端 Client" title="Direct link to 客戶端 Client">​</a></h4>
+<p>一種代表資源擁有者並取得其授權來請求受保護資源的應用程序。這裡所說的「客戶端」並不限定於特定的運作方式，如應用程序可能運行在伺服器、個人電腦或其他設備上。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="授權伺服器-authorization-server">授權伺服器 Authorization Server<a href="#授權伺服器-authorization-server" class="hash-link" aria-label="Direct link to 授權伺服器 Authorization Server" title="Direct link to 授權伺服器 Authorization Server">​</a></h4>
+<p>這是一種在驗證了資源擁有者身份並取得其授權後，會向客戶端發放存取權杖的伺服器。</p>
+<p>需要特別指出的是，授權伺服器與資源伺服器之間的相互作用並不包括在此規範範圍內。授權伺服器可能與資源伺服器為同一伺服器，也可能是兩個不同的實體。單一的授權伺服器有可能發行多個資源伺服器都接受的存取權杖。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="流程">流程<a href="#流程" class="hash-link" aria-label="Direct link to 流程" title="Direct link to 流程">​</a></h3>
+<p><img loading="lazy" alt="oauth2-001" src="/src.dev/assets/images/oauth2-001-bd72da8e2f85d8669534abdabb404d47.png" width="617" height="366" class="img_ev3q"></p>
+<p>OAuth 2.0 的基本流程描述了四種角色之間的相互作用，涵蓋以下幾個步驟：</p>
+<blockquote>
+<p>(A) 客戶端向資源所有者申請授權。這種授權請求可以直接向資源所有者提出，或更理想地，透過授權伺服器間接進行。</p>
+</blockquote>
+<blockquote>
+<p>(B) 客戶端獲得授權准證，這是一種代表資源所有者授權的證明，可以採用本標準中定義的四種授權方式之一，或者是採用其他擴充的授權方式。選擇哪種授權方式取決於客戶端的請求方式及授權伺服器所支援的方式。</p>
+</blockquote>
+<blockquote>
+<p>(C) 客戶端透過向授權伺服器驗證自己的身份，並出示授權准證來申請取得訪問令牌。</p>
+</blockquote>
+<blockquote>
+<p>(D) 授權伺服器對客戶端進行身份驗證，檢查授權准證是否有效，如有效則發放訪問令牌。</p>
+</blockquote>
+<blockquote>
+<p>(E) 客戶端向資源伺服器請求受保護的資源，並提供訪問令牌以證明自己的身份。</p>
+</blockquote>
+<blockquote>
+<p>(F) 資源伺服器檢驗訪問令牌的有效性，一旦驗證通過，便會提供所請求的服務。</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="授權准證-authorization-grant">授權准證 Authorization Grant<a href="#授權准證-authorization-grant" class="hash-link" aria-label="Direct link to 授權准證 Authorization Grant" title="Direct link to 授權准證 Authorization Grant">​</a></h3>
+<p>授權准證是一種代表資源擁有者授權的憑證，主要用途是幫助客戶端獲取訪問令牌，以便訪問受保護的資源。這項規範中定義了四大類型的授權方式：授權碼、隱式授權、資源擁有者的密碼憑證以及客戶端憑證。除此之外，還提供了一種可擴展機制，用於定義其他類型的授權方式。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="授權碼-authorization-code">授權碼 Authorization Code<a href="#授權碼-authorization-code" class="hash-link" aria-label="Direct link to 授權碼 Authorization Code" title="Direct link to 授權碼 Authorization Code">​</a></h4>
+<p>授權碼是通過授權伺服器，作為客戶端和資源擁有者之間的中介來獲取的。與其直接向資源擁有者請求授權，客戶端會引導資源擁有者透過其網絡瀏覽器（依照 [RFC2616] 的定義）前往授權伺服器，然後該伺服器會帶著授權碼將資源擁有者重新導向回客戶端。</p>
+<p>在把資源擁有者和授權碼一起引導回客戶端之前，授權伺服器會先進行資源擁有者的身份驗證並確認其授權。由於資源擁有者只在授權伺服器進行身份驗證，他們的憑證就不會被分享給客戶端。</p>
+<p>授權碼提供了若干重要的安全優勢，包括能夠驗證客戶端的身份，以及將訪問令牌直接傳送給客戶端，而不需要經過資源擁有者的瀏覽器，這樣可以防止令牌被包括資源擁有者本人在內的其他人接觸到。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="隱式授權-implicit">隱式授權 Implicit<a href="#隱式授權-implicit" class="hash-link" aria-label="Direct link to 隱式授權 Implicit" title="Direct link to 隱式授權 Implicit">​</a></h4>
+<p>隱式授權是一種針對在瀏覽器中使用腳本語言（如 JavaScript）實現的客戶端所優化的簡化授權碼流程。在這種流程中，客戶端不是獲得一個授權碼，而是直接獲得一個訪問令牌，這是資源擁有者授權的直接結果。這種授權類型稱為隱式，因為過程中不會發出任何中間憑證（比如授權碼），而這些憑證通常會用來獲取訪問令牌。</p>
+<p>在隱式授權流程中，當發放訪問令牌時，授權伺服器並不驗證客戶端的身份。在一些情況下，可以透過重定向 URI 來確認客戶端的身份，這個 URI 用於將訪問令牌傳遞給客戶端。這個訪問令牌可能會暴露給資源擁有者或其他能接觸到資源擁有者瀏覽器的應用程式。</p>
+<p>雖然隱式授權可以提高某些客戶端（如瀏覽器內應用程式）的反應速度和效率，因為它減少了獲得訪問令牌所需要的往返次數，但使用隱式授權的便利性需要與其可能帶來的安全風險進行權衡，特別是當存在授權碼授權方式的情況下。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="資源擁有者的密碼憑證-password-credentials">資源擁有者的密碼憑證 Password Credentials<a href="#資源擁有者的密碼憑證-password-credentials" class="hash-link" aria-label="Direct link to 資源擁有者的密碼憑證 Password Credentials" title="Direct link to 資源擁有者的密碼憑證 Password Credentials">​</a></h4>
+<p>資源擁有者的用戶名和密碼（即密碼認證）可以直接用作授權憑證，以換取訪問令牌。這種做法應當只在資源擁有者和客戶端之間有高度的信任關係時採用，如客戶端是裝置操作系統的一部分或是一個高權限應用程式，並且在其他授權憑證類型（例如授權碼）不可用的情況下使用。</p>
+<p>雖然這種授權方式需要客戶 端直接使用資源擁有者的認證，但這些認證僅用於一次請求，之後會被換成訪問令牌。這種方式可以避免客戶端將來需要儲存資源擁有者的認證，因為可以將這些認證換成一個長效的訪問令牌或刷新令牌。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="客戶端憑證-client-credentials">客戶端憑證 Client Credentials<a href="#客戶端憑證-client-credentials" class="hash-link" aria-label="Direct link to 客戶端憑證 Client Credentials" title="Direct link to 客戶端憑證 Client Credentials">​</a></h4>
+<p>當授權範圍僅限於客戶端所控制的受保護資源，或是與授權服務器事前協商的受保護資源時，客戶端憑證（或其他形式的客戶端認證）可被用作授權憑證。在客戶端代表自己（即客戶端同時也是資源擁有者）或是基於與授權伺服器先前達成的授權協議來請求存取受保護資源的情況下，客戶端憑證通常會被用作授權憑證。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="access-token">Access Token<a href="#access-token" class="hash-link" aria-label="Direct link to Access Token" title="Direct link to Access Token">​</a></h3>
+<p>Access Token 是一種憑證，用於存取受保護的資源。它是一串代表對客戶端授權的字串，對客戶端而言，這串字串通常是不透明的。Token 指定了特定的存取範圍和期限，這些由資源擁有者授予，並由資源和授權伺服器執行。</p>
+<p>Token 可能是一個識別碼，用於取回授權資訊，或者可能直接包含了可以驗證的授權資訊（如含有數據和簽名的 Token 字串）。客戶端使用 Token 時，可能需要額外的認證憑證，但這超出了本規範的範疇。</p>
+<p>Access Token 提供了一個抽象層，用單一 Token 替代了不同的授權方式（如用戶名和密碼），讓資源伺服器可以理解。這種抽象使得發行的 Access Token 可以比獲取它們的授權憑證有更嚴格的  限制，同時減少了資源伺服器需要理解多種認證方法的負擔。</p>
+<p>Access Token 的格式、結構和使用方式可能會根據資源伺服器的安全需求有所不同，例如其加密特性。關於 Access Token 的屬性和存取受保護資源的方法，不在本規範範圍內，而是由相關的規範（如 [RFC6750]）所定義。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="refresh-token">Refresh Token<a href="#refresh-token" class="hash-link" aria-label="Direct link to Refresh Token" title="Direct link to Refresh Token">​</a></h3>
+<p>Refresh Token 是用來獲取新的 Access Token 的憑證。它們在當前 Access Token 失效或過期，或當需要獲得範圍相同或更小的額外 Access Token 時由授權伺服器發給客戶端（注意，Access Token 的有效期和權限可能比資源擁有者所授權的範圍要小）。發放 Refresh Token 是授權伺服器的自由裁量權，不是必須的。如果授權伺服器確實發放了 Refresh Token，那麼它會在發放 Access Token 的時候一起提供。</p>
+<p>Refresh Token 是一種代表資源擁有者給予客戶端授權的字串，對客戶端來說通常是不透明的。這個 Token 是一個標識碼，用於獲取授權資訊。與 Access Token 不同，Refresh Token 只用於與授權伺服器之間的交互，不會被發送給資源伺服器。</p>
+<p><img loading="lazy" alt="oauth2-002" src="/src.dev/assets/images/oauth2-002-86b582053de15db6cb0f3df3d7bf697f.png" width="711" height="434" class="img_ev3q"></p>
+<p>上圖描述的流程涵蓋以下步驟：</p>
+<blockquote>
+<p>(A) 客戶端通過向授權伺服器證明自己的身份並提出授權請求，來請求獲得 Access Token。</p>
+</blockquote>
+<blockquote>
+<p>(B) 授權伺服器對客戶端進行身份驗證，確認授權請求的有效性，如果授權請求有效，則會發放 Access Token 和 Refresh Token。</p>
+</blockquote>
+<blockquote>
+<p>(C) 客戶端展示 Access Token，向資源伺服器發起對受保護資源 的請求。</p>
+</blockquote>
+<blockquote>
+<p>(D) 資源伺服器檢驗 Access Token，若該 Token 有效，則響應請求。</p>
+</blockquote>
+<blockquote>
+<p>(E) 直到 Access Token 過期之前，步驟 (C) 和 (D) 會不斷重複。若客戶端察覺到 Access Token 已過期，則直接進行步驟 (G)；否則，它會再次發起對受保護資源的請求。</p>
+</blockquote>
+<blockquote>
+<p>(F) 由於 Access Token 無效，資源伺服器會回傳一個 Token 無效的錯誤。</p>
+</blockquote>
+<blockquote>
+<p>(G) 客戶端通過證明自己的身份給授權伺服器，並展示 Refresh Token，來請求一個新的 Access Token。客戶端的身份驗證要求取決於其類型以及授權伺服器的政策。</p>
+</blockquote>
+<blockquote>
+<p>(H) 授權伺服器驗證客戶端身份並檢查 Refresh Token 的有效性，若有效，則發放一個新的 Access Token（以及可選的新的 Refresh Token）。</p>
+</blockquote>
+<p>參考：<a href="https://datatracker.ietf.org/doc/html/rfc6749" target="_blank" rel="noopener noreferrer">The OAuth 2.0 Authorization Framework</a></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/src.dev/json-web-tokens"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">JWT(JSON Web Token)介紹</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#介紹" class="table-of-contents__link toc-highlight">介紹</a><ul><li><a href="#角色" class="table-of-contents__link toc-highlight">角色</a></li><li><a href="#流程" class="table-of-contents__link toc-highlight">流程</a></li><li><a href="#授權准證-authorization-grant" class="table-of-contents__link toc-highlight">授權准證 Authorization Grant</a></li><li><a href="#access-token" class="table-of-contents__link toc-highlight">Access Token</a></li><li><a href="#refresh-token" class="table-of-contents__link toc-highlight">Refresh Token</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 src.dev. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
