@@ -1,5 +1,4 @@
 ---
-sidebar_position: 2
 title: JWT(JSON Web Token)介紹
 ---
 
