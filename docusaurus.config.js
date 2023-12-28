@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-src.ico',
 
   // Set the production url of your site here
   url: 'https://sueraychang.github.io',
@@ -59,6 +59,10 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        gtag: {
+          trackingID: 'G-4CCS3TY6BJ',
+          anonymizeIP: true,
+        }
       }),
     ],
   ],
@@ -72,7 +76,7 @@ const config = {
         title: 'src.dev',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo-src.svg',
         },
         items: [
           {
@@ -137,6 +141,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['dart'],
       },
     }),
 };
