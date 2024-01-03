@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 slug: /
-title: 從0到1將 Docusaurus 署到 GitHub Pages
+title: 從 0 到 1 將 Docusaurus 部署到 GitHub Pages
 ---
 
 如何快速架設 Docusaurus 並部署到 GitHub Pages 呢？
