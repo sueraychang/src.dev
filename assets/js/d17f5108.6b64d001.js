@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksrc_dev=self.webpackChunksrc_dev||[]).push([[487],{14:e=>{e.exports=JSON.parse('[{"label":"\u8b80\u66f8\u6458\u8981","permalink":"/src.dev/blog/tags/\u8b80\u66f8\u6458\u8981","count":1},{"label":"\u81ea\u6211\u6210\u9577","permalink":"/src.dev/blog/tags/\u81ea\u6211\u6210\u9577","count":1}]')}}]);

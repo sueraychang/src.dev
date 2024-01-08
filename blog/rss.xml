@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>My Site Blog</title>
+        <link>https://sueraychang.github.io/src.dev/blog</link>
+        <description>My Site Blog</description>
+        <lastBuildDate>Mon, 08 Jan 2024 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[打造第二大腦]]></title>
+            <link>https://sueraychang.github.io/src.dev/blog/building-a-second-brain</link>
+            <guid>https://sueraychang.github.io/src.dev/blog/building-a-second-brain</guid>
+            <pubDate>Mon, 08 Jan 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[打造第二大腦（"Building a Second Brain"）這本書由提亞戈·佛特（Tiago Forte）所著，主要著眼於高效率的知識管理和個人生產力提升。這本書的核心理念是幫助人們利用數位工具來儲存、組織、並有效利用知識，從而提高創造力和生產力。]]></description>
+            <content:encoded><![CDATA[<p><strong>打造第二大腦</strong>（"Building a Second Brain"）這本書由提亞戈·佛特（Tiago Forte）所著，主要著眼於高效率的知識管理和個人生產力提升。這本書的核心理念是幫助人們利用數位工具來儲存、組織、並有效利用知識，從而提高創造力和生產力。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="code-流程">CODE 流程<a href="https://sueraychang.github.io/src.dev/blog/building-a-second-brain#code-%E6%B5%81%E7%A8%8B" class="hash-link" aria-label="Direct link to CODE 流程" title="Direct link to CODE 流程">​</a></h2>
+<p>書中介紹了名為 <strong>CODE</strong> 的四步驟流程，主旨在幫助讀者有效的管理和利用他們的數位知識。CODE 是 Capture (捕捉)、Organize (組織)、Distill (提煉)、Express (表達) 這四個詞的首字母縮寫，下面是每個步驟的詳細說明：</p>
+<ol>
+<li>Capture 捕捉：<!-- -->
+<ul>
+<li>這一步驟強調將你遇到的所有有價值的信息捕捉下來。無論是想法、讀物摘要、會議記錄，還是靈感，都應該被記錄並存儲在可靠的系統中。</li>
+<li>重點是減少對大腦記憶的依賴，將信息外化存儲，以便未來使用。</li>
+</ul>
+</li>
+<li>Organize 組織：<!-- -->
+<ul>
+<li>這一步驟涉及將捕捉的信息組織起來，以便能夠輕鬆地找到和使用它們。這裡的關鍵是創建一個直觀、一致的系統，使得信息分類和檢索變得容易。</li>
+<li>例如，可以使用標籤、文件夾、或是特定軟件的組織功能來分類不同類型的信息。</li>
+</ul>
+</li>
+<li>Distill 提煉：<!-- -->
+<ul>
+<li>提煉步驟是指將大量信息簡化為核心要點和主要觀點。這一過程幫助你從大量信息中提取最有價值的部分。</li>
+<li>重要的是去除冗餘，保留最精華、最有用的知識點。</li>
+</ul>
+</li>
+<li>Express 表達：<!-- -->
+<ul>
+<li>最後一步是將你的知識和學習通過某種方式表達出來，無論是寫作、教學、還是通過項目和演講。</li>
+<li>這個過程不僅幫助你鞏固和深化學習，還可能為他人提供價值。</li>
+</ul>
+</li>
+</ol>
+<p>通過這四個步驟，Forte 強調了知識管理的整個流程，從信息的最初捕捉到最終的應用和分享。這個流程旨在幫助人們有效地管理他們的數位信息，並將其轉化為實際的知識和洞見。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="para-方法">PARA 方法<a href="https://sueraychang.github.io/src.dev/blog/building-a-second-brain#para-%E6%96%B9%E6%B3%95" class="hash-link" aria-label="Direct link to PARA 方法" title="Direct link to PARA 方法">​</a></h2>
+<p>如何有效率的組織屬於自己的資訊呢？</p>
+<p>作者提出的 PARA 方法是一套用於數位知識管理和組織的系統，旨在幫助個人和專業人士更有效地存儲、檢索和利用信息。PARA 是四個類別的首字母縮寫：Projects（專案）、Areas（領域）、Resources（資源）和 Archives（檔案）。以下是每個類別的詳細介紹：</p>
+<ol>
+<li>Projects（專案）:<!-- -->
+<ul>
+<li>A project is "a series of tasks linked to a goal, with a deadline."</li>
+<li>一個專案是指有特定結果和截止日期的一系列任務。專案是動態的，通常會隨著任務的完成而結束，譬如完成一日北高、完成橫渡日月潭。</li>
+<li>每個專案都應該有自己的文件夾或空間，其中包含完成該項目所需的所有資料和信息。</li>
+</ul>
+</li>
+<li>Areas（領域）:<!-- -->
+<ul>
+<li>An area of responsibility is "a sphere of activity with a standard to be maintained overtime."</li>
+<li>領域是生活中需要持續管理和注意的範疇，如健康(增肌減脂)、學習(第二外語)、職業發展(斜槓領域發展)等。與項目不同，領域是持續性的，沒有明確的結束點。</li>
+<li>為每個領域建立專屬的文件夾或空間，存放與該領域相關的資訊和資源。</li>
+</ul>
+</li>
+<li>Resources（資源）:<!-- -->
+<ul>
+<li>A resource is "a topic or theme of ongoing interest."</li>
+<li>資源是指你可能會反覆使用或參考的信息，例如文章、書籍、研究報告等。這些信息通常是主題性的，與特定的興趣或專業知識相關。</li>
+<li>將資源按主題分類，每個主題一個文件夾，方便日後查找和使用。</li>
+</ul>
+</li>
+<li>Archives（檔案）:<!-- -->
+<ul>
+<li>Archives include "inactive items from the other three categories."</li>
+<li>檔案是過時或目前不活躍的項目、領域和資源。這些信息目前可能不需要，但保留起來可能對未來有用。</li>
+<li>將不再活躍的項目和資料移到檔案區，以減少干擾並保持主要工作區的清晰和專注。</li>
+</ul>
+</li>
+</ol>
+<p>應用 PARA 方法的關鍵在於，它能夠幫助用戶區分不同類型的工作和信息，並為每種類型提供清晰的組織結構。這樣，用戶可以 <em><strong>更有效地找到所需的信息</strong></em> ，並確保他們的數位環境保持有序和高效。此外，PARA 方法鼓勵 <em><strong>定期審查和更新</strong></em> 每個類別，確保所有信息都是最新的並且與當前的目標和需求相關。</p>]]></content:encoded>
+            <category>讀書摘要</category>
+            <category>自我成長</category>
+        </item>
+    </channel>
+</rss>

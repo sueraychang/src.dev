@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksrc_dev=self.webpackChunksrc_dev||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"\u6253\u9020\u7b2c\u4e8c\u5927\u8166","permalink":"/src.dev/blog/building-a-second-brain","unlisted":false}]}')}}]);

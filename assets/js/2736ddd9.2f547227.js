@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksrc_dev=self.webpackChunksrc_dev||[]).push([[898],{5638:s=>{s.exports=JSON.parse('{"label":"\u8b80\u66f8\u6458\u8981","permalink":"/src.dev/blog/tags/\u8b80\u66f8\u6458\u8981","allTagsPath":"/src.dev/blog/tags","count":1,"unlisted":false}')}}]);
