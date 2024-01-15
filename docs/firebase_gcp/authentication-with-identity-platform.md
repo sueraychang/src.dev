@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 title: Authentication 如何設定白名單
 ---
 
